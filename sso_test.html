@@ -18,17 +18,15 @@ var authClient = new OktaAuth({
 });
 
 // You're not logged in, you need a sessionToken
-//var username = prompt('What is your username?');
-//var password = prompt('What is your password?');
+var username = prompt('What is your username?');
+var password = prompt('What is your password?');
 
-authClient.signInWithCredentials({"thamngapwei@gmail.com", "mononoke96171"})
+authClient.signInWithCredentials({username, password})
     .then(transaction => {
-      console.log("status of transaction == ", transaction.status)	
+	  console.log("transaction status == ", transaction.status)
       if(transaction.status === 'SUCCESS'){
-        console.log("login success?")
-      }else{
-	    console.log("login not success")
-	  }
+        console.log("login success")
+      }
     });
 
 </script>
